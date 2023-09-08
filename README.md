@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+Website Structure
+* Navigation - About, Skills, Projects & Demo, Resume, Contact, Mini Footer, Footer
+* Header - Welcome to my Website (Hi, I am <br/> Ivie Maryann Emwiongbon) (Software and Web Developer, Technical Support) - Find me -      
+  Linkedln and Github
+* Skills - Html, Css, sass, React, Typescript, nextjs
+* Resume - tab (Education, professional skills, experience)
