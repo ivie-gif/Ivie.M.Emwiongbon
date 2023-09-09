@@ -1,7 +1,7 @@
 const palette = {
 // red color
 primary: {
-    main: 'ff014f'
+    main: '#ff014f'
 },
 // black color
 background: {

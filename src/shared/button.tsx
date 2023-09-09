@@ -5,7 +5,7 @@ interface IProps {
   onClick?: (evt?: any) => void
   children: ReactNode
   size?: 'small' | 'medium' | 'large'
-  color?: 'primary' | 'secondary' | 'success' | 'error'
+  disableElevation?: boolean
   variant?: 'contained' | 'outlined' | 'text'
   disabled?: boolean
   type?: 'button' | 'submit'
@@ -14,7 +14,6 @@ interface IProps {
 
 const CustomButton = ({
   size,
-  color,
   variant,
   onClick,
   disabled,
@@ -25,7 +24,6 @@ const CustomButton = ({
   return (
     <Button
       size={size}
-      color={color}
       variant={variant}
       onClick={onClick}
       disabled={disabled}
