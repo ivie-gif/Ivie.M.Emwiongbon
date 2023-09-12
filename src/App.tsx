@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
+import Portfolio from './components/portfolio'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <div>
         <Navbar />
         <Header />
+        <Portfolio />
       </div>
     </div>
   );

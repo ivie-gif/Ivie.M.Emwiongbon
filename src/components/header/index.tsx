@@ -7,9 +7,11 @@ import ivieAvatar from "../../assets/ivieHeaderImage-removebg-preview.png";
 import linkedInImage from "../../assets/linkedInImage.png";
 import githubImage from "../../assets/gitupScreenshot.png";
 
+import BorderDivs from "../../shared/borderDivs";
+
 const Header = () => {
   return (
-    <Box sx={{ paddingX: "10%", textAlign: "left" }}>
+    <Box sx={{ paddingX: "10%", textAlign: "left"}}>
       <Grid
         container
         rowSpacing={1}
@@ -166,6 +168,7 @@ const Header = () => {
           />
         </Grid>
       </Grid>
+      <BorderDivs/>
     </Box>
   );
 };
