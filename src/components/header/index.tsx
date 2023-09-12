@@ -150,8 +150,8 @@ const Header = () => {
               zIndex: "-1",
               width: { xs: "80%", md: "80%", lg: "40%" },
               height: {
-                xs: "calc(100% - 100px)",
-                md: "calc(100% - 120px)",
+                xs: "calc(85% - 100px)",
+                md: "calc(85% - 120px)",
                 lg: "calc(100% - 130px)",
               },
               marginTop: "15%",

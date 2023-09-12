@@ -2,7 +2,7 @@ import React from "react";
 
 function BorderDivs() {
   return (
-    <div style={{ borderBottom: "1px solid black", padding: "3% 10%" }}></div>
+    <div style={{ borderBottom: "1px solid black", padding: "3% 10% 0% 10%" }}></div>
   );
 }
 
