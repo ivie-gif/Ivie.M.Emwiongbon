@@ -94,40 +94,43 @@ const Header = () => {
                     {contentData.socials}
                   </Typography>
                   <Box sx={{ display: "flex" }}>
-                    <Typography
-                      style={{
-                        width: "10%",
-                        boxShadow:
-                          "25px 25px 30px #1c1e22, -20px -20px 29px #262a2e",
-                        backgroundColor:
-                          "linear-gradient(145deg, #1e2024, #23272b)",
-                      }}
+                    <a
+                      href="http://www.linkedin.com/in/ivie-maryann-emwiongbon"
+                      target="_blank"
                     >
-                      <img
-                        alt="Ivie Image"
-                        src={linkedInImage}
-                        style={{ padding: "5px 10px" }}
-                      />
-                    </Typography>
-                    <Typography
-                      style={{
-                        boxShadow:
-                          "10px 10px 15px #1c1e22, -10px -10px 19px #262a2e",
-                        backgroundColor:
-                          "linear-gradient(145deg, #1e2024, #23272b)",
-                        marginTop: "7px",
-                        marginLeft: "20px",
-                      }}
-                    >
-                      <img
-                        alt="Ivie Image"
-                        src={githubImage}
+                      <Typography
                         style={{
-                          width: "40%",
-                          margin: "10px -30px 0px 15px",
+                          width: "10%",
                         }}
-                      />
-                    </Typography>
+                      >
+                        <img
+                          alt="Ivie Image"
+                          src={linkedInImage}
+                          style={{ padding: "5px 10px",  boxShadow:
+                          "25px 25px 30px #1c1e22, -20px -20px 29px #262a2e", }}                         
+                        />
+                      </Typography>
+                    </a>
+                    <a href="https://github.com/ivie-gif" target="_blank">
+                      <Typography
+                        style={{
+                          marginLeft: "20px",
+                          boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
+                          backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
+                        }}
+                      >
+                        <img
+                          alt="Ivie Image"
+                          src={githubImage}
+                          style={{
+                            width: "40%",
+                            marginTop: "15px",
+                            margin: "15px -43px 9px 17px",
+                            
+                          }}
+                        />
+                      </Typography>
+                    </a>
                   </Box>
                 </>
               );
