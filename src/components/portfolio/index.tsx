@@ -8,32 +8,6 @@ import { portfolioContent } from "../../db/portfolioData";
 import TruncateText from "../../utils/truncateFunc";
 
 const Index = () => {
-  const [count, setCount] = useState<number>(0);
-  const [isLoved, setIsLoved] = useState<boolean>(false);
-
-  const HandleCount = () => {
-    if (isLoved) {
-      setCount(count);
-    } else {
-      setCount(count + 1);
-    }
-    setIsLoved(!isLoved);
-  };
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const likeButton:any = document.getElementById("like-button");
-    let isLiked = false;
-
-    likeButton.addEventListener("click", function () {
-        isLiked = !isLiked;
-        if (isLiked) {
-            likeButton.classList.add("liked");
-        } else {
-            likeButton.classList.remove("liked");
-        }
-    });
-});
-
   return (
     <Box sx={{ padding: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>
@@ -68,7 +42,6 @@ const Index = () => {
                   style={{
                     backgroundColor: "white",
                     width: "750px",
-                    // marginBottom: "5px",
                   }}
                 >
                   <Box
@@ -98,8 +71,7 @@ const Index = () => {
                   </Box>
                   <Box
                     sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
+                      textAlign: 'left',
                       px: 2,
                       pt: 5,
                     }}
@@ -107,25 +79,6 @@ const Index = () => {
                     <Typography sx={{ color: "#ff014f" }}>
                       {portData.devType}
                     </Typography>
-
-                    <Box sx={{ display: "flex" }}>
-                      <Typography>
-                        <Checkbox
-                        id="like-button"
-                          icon={<FavoriteBorder />}
-                          checkedIcon={<Favorite />}
-                          onClick={HandleCount}
-                          sx={{
-                            color: "#ff014f",
-                            marginTop: "-10px",
-                            "&::after": {
-                              backgroundColor: "#ff014f",
-                            },
-                          }}
-                        />
-                      </Typography>
-                      <Typography sx={{ color: "#ff014f" }}>{count}</Typography>
-                    </Box>
                   </Box>
                   <a
                     href={portData.links}
