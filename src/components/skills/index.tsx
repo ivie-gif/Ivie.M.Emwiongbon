@@ -86,7 +86,6 @@ const Index = () => {
         <Grid item xs={12} lg={6} md={12}>
           <Tabs
             orientation="vertical"
-            // variant="scrollable"
             value={value}
             onChange={handleChange}
             textColor="inherit"
@@ -95,7 +94,6 @@ const Index = () => {
             sx={{
               width: {xs: '100%', md: "100%", lg: 400},
               minWidth: '-webkit-fill-available',
-            // minWidth: {xs: '-webkit-fill-available', md: '-webkit-fill-available'},
               border: "2px solid #202225",
               borderRadius: "20px",
             }}
@@ -106,7 +104,6 @@ const Index = () => {
               sx={{
                 boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
                 backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
-                // width: 450,
                 py: 5,
                 borderRadius: 1,
                 color: "#ff014f",
@@ -124,7 +121,6 @@ const Index = () => {
                   color: "#ff014f",
                   boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
                 backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
-                // width: 450,
                 borderRadius: 1,
                 },
               }} />
@@ -136,7 +132,6 @@ const Index = () => {
                   color: "#ff014f",
                   boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
                 backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
-                // width: 450,
                 borderRadius: 1,
                 },
               }} />
@@ -149,7 +144,6 @@ const Index = () => {
                   color: "#ff014f",
                   boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
                 backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
-                // width: 450,
                 borderRadius: 1,
                 },
               }} />
