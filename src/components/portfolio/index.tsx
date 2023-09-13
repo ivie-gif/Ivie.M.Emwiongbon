@@ -5,7 +5,7 @@ import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import Card from "../../shared/cards";
 
 import { portfolioContent } from "../../db/portfolioData";
-import TruncateText from "../../utils/truncateFunc"
+import TruncateText from "../../utils/truncateFunc";
 
 const Index = () => {
   const [count, setCount] = useState<number>(0);
@@ -49,31 +49,46 @@ const Index = () => {
               spacing={3}
               sx={{ marginBottom: "3px" }}
             >
-              <Stack direction="row" alignItems="center" spacing={3}>
+              <Stack direction="row" alignItems="center" spacing={3} sx={{mb: 5}}>
                 <Card
                   style={{
                     backgroundColor: "white",
                     width: "750px",
-                    marginBottom: "3px",
+                    // marginBottom: "5px",
                   }}
                 >
-                  {/* <Box> */}
-                  <img
-                    alt="portfolio images"
-                    src={portData.image}
-                    style={{
-                      padding: "10%",
-                      objectFit: "cover",
-                      width: "80%",
-                      height: "25vh",
-                      transition: "all 0.5s ease-out-in",
-                      borderRadius: "10px",
-                      animation: "ripple 1.2s infinite ease-in-out",
-                    }}
-                  />
-                  {/* </Box> */}
                   <Box
-                    sx={{ display: "flex", justifyContent: "space-between", px: 2}}
+                    sx={{
+                      "&:hover": {
+                        opacity: [0.9, 0.8, 0.7],
+                        transition: "all 0.5s ease-in-out",
+                        transform: "scale(1.1)",
+                      },
+                    }}
+                  >
+                    <a href={portData.links} target="_blank">
+                      <img
+                        alt="portfolio images"
+                        className="TestThing"
+                        src={portData.image}
+                        style={{
+                          padding: "40% -2% !important",
+                          marginTop: "20px",
+                          objectFit: "cover",
+                          width: "90%",
+                          height: "30vh",
+                          borderRadius: "20px",
+                        }}
+                      />
+                    </a>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      px: 2,
+                      pt: 5,
+                    }}
                   >
                     <Typography sx={{ color: "#ff014f" }}>
                       {portData.devType}
@@ -87,7 +102,7 @@ const Index = () => {
                           onClick={HandleCount}
                           sx={{
                             color: "#ff014f",
-                            marginTop: '-10px',
+                            marginTop: "-10px",
                             "&::after": {
                               backgroundColor: "#ff014f",
                             },
@@ -97,22 +112,28 @@ const Index = () => {
                       <Typography sx={{ color: "#ff014f" }}>{count}</Typography>
                     </Box>
                   </Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: "#c4cfde",
-                      px: 2,
-                      py: 3,
-                      "&:hover": {
-                        color: "#ff014f",
-                      },
-                      textAlign: "left",
-                    }}
+                  <a
+                    href={portData.links}
+                    target="_blank"
+                    style={{ textDecoration: "none" }}
                   >
-                    {portData.paragraph ? TruncateText(portData.paragraph, 56) : '--'}
-
-                    {/* text?.slice(0, maxLength) + */}
-                  </Typography>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: "#c4cfde",
+                        px: 2,
+                        py: 3,
+                        "&:hover": {
+                          color: "#ff014f",
+                        },
+                        textAlign: "left",
+                      }}
+                    >
+                      {portData.paragraph
+                        ? TruncateText(portData.paragraph, 56)
+                        : "--"}
+                    </Typography>
+                  </a>
                 </Card>
               </Stack>
             </Grid>
@@ -123,3 +144,6 @@ const Index = () => {
 };
 
 export default Index;
+function scale(arg0: number) {
+  throw new Error("Function not implemented.");
+}
