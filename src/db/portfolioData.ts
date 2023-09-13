@@ -43,18 +43,18 @@ export type IPortfolioContent = {
         id: 5,
         image: learnIT,
         devType: 'Web Application',
-        paragraph: 'Achieve Your Goals. Find The PerfectMentor.',
+        paragraph: 'Achieve Your Goals. Find The Perfect Mentor.',
     },
     {
         id: 6,
         image: mpiImage,
         devType: 'Web Application',
-        paragraph: 'Explore data on Multidimensional and Monetary Poverty in Nigeria.',
+        paragraph: 'Explore and Analyze data on Multidimensional Poverty in Nigeria.',
     },
     {
         id: 7,
         image: pollEasy,
         devType: 'Software',
-        paragraph: 'Collect data and layer analytics on it to manage election.',
+        paragraph: 'Collect data & layer analytics on it to manage election.',
     },
   ]

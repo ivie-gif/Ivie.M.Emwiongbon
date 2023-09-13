@@ -5,6 +5,7 @@ import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import Card from "../../shared/cards";
 
 import { portfolioContent } from "../../db/portfolioData";
+import TruncateText from "../../utils/truncateFunc"
 
 const Index = () => {
   const [count, setCount] = useState<number>(0);
@@ -72,7 +73,7 @@ const Index = () => {
                   />
                   {/* </Box> */}
                   <Box
-                    sx={{ display: "flex", justifyContent: "space-between" }}
+                    sx={{ display: "flex", justifyContent: "space-between", px: 2}}
                   >
                     <Typography sx={{ color: "#ff014f" }}>
                       {portData.devType}
@@ -100,13 +101,17 @@ const Index = () => {
                     variant="h5"
                     sx={{
                       color: "#c4cfde",
+                      px: 2,
+                      py: 3,
                       "&:hover": {
                         color: "#ff014f",
                       },
                       textAlign: "left",
                     }}
                   >
-                    {portData.paragraph}
+                    {portData.paragraph ? TruncateText(portData.paragraph, 56) : '--'}
+
+                    {/* text?.slice(0, maxLength) + */}
                   </Typography>
                 </Card>
               </Stack>
