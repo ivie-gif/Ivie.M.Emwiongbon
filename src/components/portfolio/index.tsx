@@ -20,6 +20,20 @@ const Index = () => {
     setIsLoved(!isLoved);
   };
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const likeButton:any = document.getElementById("like-button");
+    let isLiked = false;
+
+    likeButton.addEventListener("click", function () {
+        isLiked = !isLiked;
+        if (isLiked) {
+            likeButton.classList.add("liked");
+        } else {
+            likeButton.classList.remove("liked");
+        }
+    });
+});
+
   return (
     <Box sx={{ padding: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>
@@ -97,6 +111,7 @@ const Index = () => {
                     <Box sx={{ display: "flex" }}>
                       <Typography>
                         <Checkbox
+                        id="like-button"
                           icon={<FavoriteBorder />}
                           checkedIcon={<Favorite />}
                           onClick={HandleCount}
@@ -131,7 +146,12 @@ const Index = () => {
                     >
                       {portData.paragraph
                         ? TruncateText(portData.paragraph, 56)
-                        : "--"}
+                        : "--"} 
+                    <Typography sx={{display: 'none', "&:hover": {
+                      display: 'block'
+                    }}}>
+                    <img alt='arrowImage' src={portData.icon} />
+                    </Typography>
                     </Typography>
                   </a>
                 </Card>
@@ -144,6 +164,4 @@ const Index = () => {
 };
 
 export default Index;
-function scale(arg0: number) {
-  throw new Error("Function not implemented.");
-}
+
