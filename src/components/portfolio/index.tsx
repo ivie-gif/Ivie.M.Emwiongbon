@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Checkbox, Grid, Stack, Typography } from "@mui/material";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
@@ -7,12 +7,27 @@ import Card from "../../shared/cards";
 import { portfolioContent } from "../../db/portfolioData";
 
 const Index = () => {
+  const [count, setCount] = useState<number>(0);
+  const [isLoved, setIsLoved] = useState<boolean>(false);
+
+  const HandleCount = () => {
+    if (isLoved) {
+      setCount(count);
+    } else {
+      setCount(count + 1);
+    }
+    setIsLoved(!isLoved);
+  };
+
   return (
     <Box sx={{ padding: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>
         VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK
       </Typography>
-      <Typography variant="h2" sx={{ color: "#c4cfde", fontWeight: "bolder", mt: 2 }}>
+      <Typography
+        variant="h2"
+        sx={{ color: "#c4cfde", fontWeight: "bolder", mt: 2 }}
+      >
         My Projects
       </Typography>
       <Grid
@@ -31,7 +46,7 @@ const Index = () => {
               md={12}
               justifyContent="space-between"
               spacing={3}
-              sx={{marginBottom: '3px'}}
+              sx={{ marginBottom: "3px" }}
             >
               <Stack direction="row" alignItems="center" spacing={3}>
                 <Card
@@ -42,19 +57,19 @@ const Index = () => {
                   }}
                 >
                   {/* <Box> */}
-                    <img
-                      alt="portfolio images"
-                      src={portData.image}
-                      style={{
-                        padding: "10%",
-                        objectFit: "cover",
-                        width: "80%",
-                        height: "25vh",
-                        transition: 'all 0.5s ease-out-in',
-                       borderRadius: '10px',
-                       animation: "ripple 1.2s infinite ease-in-out"
-                      }}
-                    />
+                  <img
+                    alt="portfolio images"
+                    src={portData.image}
+                    style={{
+                      padding: "10%",
+                      objectFit: "cover",
+                      width: "80%",
+                      height: "25vh",
+                      transition: "all 0.5s ease-out-in",
+                      borderRadius: "10px",
+                      animation: "ripple 1.2s infinite ease-in-out",
+                    }}
+                  />
                   {/* </Box> */}
                   <Box
                     sx={{ display: "flex", justifyContent: "space-between" }}
@@ -62,18 +77,24 @@ const Index = () => {
                     <Typography sx={{ color: "#ff014f" }}>
                       {portData.devType}
                     </Typography>
-                    <Typography>
-                      <Checkbox
-                        icon={<FavoriteBorder />}
-                        checkedIcon={<Favorite />}
-                        sx={{
-                          color: "#ff014f",
-                          "&::after": {
-                            backgroundColor: "#ff014f",
-                          },
-                        }}
-                      />
-                    </Typography>
+
+                    <Box sx={{ display: "flex" }}>
+                      <Typography>
+                        <Checkbox
+                          icon={<FavoriteBorder />}
+                          checkedIcon={<Favorite />}
+                          onClick={HandleCount}
+                          sx={{
+                            color: "#ff014f",
+                            marginTop: '-10px',
+                            "&::after": {
+                              backgroundColor: "#ff014f",
+                            },
+                          }}
+                        />
+                      </Typography>
+                      <Typography sx={{ color: "#ff014f" }}>{count}</Typography>
+                    </Box>
                   </Box>
                   <Typography
                     variant="h5"
