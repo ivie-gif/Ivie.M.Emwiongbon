@@ -6,6 +6,7 @@ import Card from "../../shared/cards";
 
 import { portfolioContent } from "../../db/portfolioData";
 import TruncateText from "../../utils/truncateFunc";
+import BorderDivs from "../../shared/borderDivs";
 
 const Index = () => {
   return (
@@ -112,6 +113,7 @@ const Index = () => {
             </Grid>
           ))}
       </Grid>
+      <BorderDivs />
     </Box>
   );
 };

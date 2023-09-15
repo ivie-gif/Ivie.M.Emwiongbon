@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import CustomButton from '../../shared/button'
+
 import ivieAvatar from '../../assets/avatar.png'
 
 const pages = ['Home', 'Skills', 'Projects', 'Resume'];
@@ -33,10 +34,10 @@ const ResponsiveAppBar = () => {
 
         <Box sx={{ flexGrow: 0, display: 'flex'}}>
               <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Ivie Image" src={ivieAvatar} />
+                <Avatar alt="Ivie Image" src={ivieAvatar} sx={{border: '7px solid #262a2e'}} />
               </IconButton>
             <Box>
-            <Typography sx={{marginTop: '6px', ml: 2, color: '#c4cfde'}}>
+            <Typography sx={{mt: 2, ml: 2, color: '#c4cfde',}}>
                 INBIO
             </Typography>
             </Box>
