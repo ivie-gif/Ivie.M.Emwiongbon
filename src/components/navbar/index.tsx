@@ -1,23 +1,31 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import CustomButton from '../../shared/button'
+import React, { useEffect, useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import MenuItem from "@mui/material/MenuItem";
+import CustomButton from "../../shared/button";
+import { Link } from "react-router-dom";
 
-import ivieAvatar from '../../assets/avatar.png'
+import ivieAvatar from "../../assets/avatar.png";
 
-const pages = ['Home', 'Skills', 'Projects', 'Resume'];
+const pages = [
+  { text: "Home", path: "/", id: "/" },
+  { text: "Skills", path: "/skills", id: "/skills" },
+  { text: "Projects", path: "/projects", id: "/skills" },
+  { text: "Resume", path: "/resume", id: "/skills" },
+];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -27,22 +35,67 @@ const ResponsiveAppBar = () => {
     setAnchorElNav(null);
   };
 
+  const [scrolling, setScrolling] = useState(false);
+
+  // Adding a scroll event listener to update the AppBar's background color
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <AppBar position="static"  sx={{backgroundColor: '#212529'}}>
+    <AppBar
+      position="sticky"
+      className={`scrolled ${scrolling ? "scrolled" : ""}`}
+      sx={{
+        backgroundColor: "#212529",
+        zIndex: 3,
+        boxShadow: "none",
+        transition: "background-color 0.3s ease",
+
+        "&.scrolled": {
+          backgroundColor: 'rgba(33, 36, 40, 0.8705882353)',
+          backdropFilter: 'blur(15px)',
+        },
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-
-        <Box sx={{ flexGrow: 0, display: 'flex'}}>
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Ivie Image" src={ivieAvatar} sx={{border: '7px solid #262a2e'}} />
-              </IconButton>
+          <Box sx={{ flexGrow: 0, display: "flex" }}>
+            <IconButton sx={{ p: 0 }}>
+              <Avatar
+                alt="Ivie Image"
+                src={ivieAvatar}
+                sx={{ border: "7px solid #262a2e" }}
+              />
+            </IconButton>
             <Box>
-            <Typography sx={{mt: 2, ml: 2, color: '#c4cfde',}}>
+              <Typography sx={{ mt: 2, ml: 2, color: "#c4cfde" }}>
                 INBIO
-            </Typography>
+              </Typography>
             </Box>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, position: 'fixed', right: '0px', color:'#ff014f' }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              position: "fixed",
+              right: "0px",
+              color: "#ff014f",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -51,50 +104,85 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon sx={{position: 'relative', right: '0px'}} />
+              <MenuIcon sx={{ position: "relative", right: "0px" }} />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
+                vertical: "bottom",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' }
+                display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((page, index) => (
+                <MenuItem key={index} onClick={handleCloseNavMenu}>
+                  <a
+                    href={page.path}
+                    id={page.id}
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      borderBottom: "none",
+                    }}
+                  >
+                    <Typography textAlign="center">{page.text}</Typography>
+                  </a>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, position: 'fixed', right: '50px' }}>
-            {pages.map((page) => (
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              position: "fixed",
+              right: "50px",
+            }}
+          >
+            {pages.map((page, index) => (
               <Button
-                key={page}
+                key={index}
                 onClick={handleCloseNavMenu}
-                sx={{ mx: 2, color: 'white', display: 'block' }}
+                sx={{ mx: 2, color: "#c4cfde", display: "block" }}
               >
-                {page}
+                <a
+                  href={page.path}
+                  id={page.id}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    borderBottom: "none",
+                  }}
+                >
+                  {page.text}
+                </a>
               </Button>
             ))}
-        <CustomButton variant='text' sx={{color: '#ff014f', outline: '2px solid #212529', boxShadow: '15px 15px 20px #1c1e22, -10px -10px 19px #262a2e', backgroundColor: 'linear-gradient(145deg, #1e2024, #23272b)'}}>
-            Contact
-        </CustomButton>
+            <CustomButton
+              variant="text"
+              sx={{
+                color: "#ff014f",
+                outline: "2px solid #212529",
+                boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
+                backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
+              }}
+            >
+              Contact
+            </CustomButton>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 export default ResponsiveAppBar;
