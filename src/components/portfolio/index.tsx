@@ -65,7 +65,8 @@ const Index = () => {
                           objectFit: "cover",
                           width: "90%",
                           height: "30vh",
-                          borderRadius: "20px",
+                          borderRadius: "10px",
+                          opacity: 0.3
                         }}
                       />
                     </a>
