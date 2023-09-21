@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import BorderDivs from "../../shared/borderDivs";
 
@@ -9,7 +10,31 @@ import githubImage from "../../assets/gitupScreenshot.png";
 import Button from "../../shared/button";
 import arrowIcon from "../../assets/arrowStraight.png";
 
+interface FormData {
+  name: string;
+  phoneNumber: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const Index = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <Box sx={{ paddingX: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>Contact</Typography>
@@ -185,7 +210,13 @@ const Index = () => {
             }}
           >
             <form>
-              <Box sx={{ display: "flex", justifyContent: "space-between", height: 'auto' }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  height: "auto",
+                }}
+              >
                 <Box>
                   <Typography
                     sx={{
@@ -204,6 +235,9 @@ const Index = () => {
                     id="outlined-error"
                     variant="filled"
                     color="error"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     sx={{
                       width: "25ch",
                       border: "2px solid #191b1e",
@@ -232,6 +266,9 @@ const Index = () => {
                     hiddenLabel
                     id="outlined-error"
                     variant="filled"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
                     sx={{
                       width: "25ch",
                       border: "2px solid #191b1e",
@@ -262,6 +299,9 @@ const Index = () => {
                 id="outlined-error"
                 variant="filled"
                 color="error"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 fullWidth
                 sx={{
                   border: "2px solid #191b1e",
@@ -291,6 +331,9 @@ const Index = () => {
                 id="outlined-error"
                 variant="filled"
                 color="error"
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
                 fullWidth
                 sx={{
                   border: "2px solid #191b1e",
@@ -320,6 +363,9 @@ const Index = () => {
                 id="outlined-error"
                 variant="filled"
                 color="error"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 fullWidth
                 multiline
                 rows={10}
@@ -329,34 +375,42 @@ const Index = () => {
                   letterSpacing: "1px",
                   boxShadow:
                     "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
+                  "&#outlined-error.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputMultiline.MuiInputBase-inputHiddenLabel.css-7209ej-MuiInputBase-input-MuiFilledInput-input":
+                    {
+                      color: "white",
+                    },
                 }}
               />
               <Button
+                type="submit"
                 sx={{
                   borderRadius: "6px",
-                  boxShadow:
-                      "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e",
-                      width: '100%', 
-                      mt: 5,
+                  boxShadow: "10px 10px 19px #1c1e22, -10px -10px 19px #262a2e",
+                  width: "100%",
+                  mt: 5,
                 }}
               >
-                <Box sx={{display: 'flex'}}>
-                <Typography
-                  sx={{
-                    color: "#ff014f",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    position: "relative",
-                    zIndex: 2,
-                    pt: 1,
-                    pb: 1,
-                  }}
-                >
-                  SEND MESSAGE
-                </Typography>
-                <Typography sx={{pt: 1}}>
-                  <img src={arrowIcon} alt="arrow button" style={{marginLeft: '4px', width: '70%',}} />
-                </Typography>
+                <Box sx={{ display: "flex" }}>
+                  <Typography
+                    sx={{
+                      color: "#ff014f",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      position: "relative",
+                      zIndex: 2,
+                      pt: 1,
+                      pb: 2,
+                    }}
+                  >
+                    SEND MESSAGE
+                  </Typography>
+                  <Typography sx={{ pt: 1 }}>
+                    <img
+                      src={arrowIcon}
+                      alt="arrow button"
+                      style={{ marginLeft: "4px", width: "70%" }}
+                    />
+                  </Typography>
                 </Box>
               </Button>
             </form>
