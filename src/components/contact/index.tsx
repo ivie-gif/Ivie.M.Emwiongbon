@@ -35,6 +35,19 @@ const Index = () => {
     });
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // You can access the form data from formData here and perform actions like sending it to a server
+    console.log(formData);
+    setFormData({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      subject: "",
+      message: "",
+    });
+  };
+
   return (
     <Box sx={{ paddingX: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>Contact</Typography>
@@ -209,7 +222,7 @@ const Index = () => {
               backgroundColor: "#212428",
             }}
           >
-            <form>
+            <form onSubmit={handleSubmit}>
               <Box
                 sx={{
                   display: "flex",
@@ -231,6 +244,7 @@ const Index = () => {
                     NAME
                   </Typography>
                   <TextField
+                    type="text"
                     hiddenLabel
                     id="outlined-error"
                     variant="filled"
@@ -262,6 +276,7 @@ const Index = () => {
                     PHONE NUMBER
                   </Typography>
                   <TextField
+                    type="tel"
                     color="error"
                     hiddenLabel
                     id="outlined-error"
@@ -327,6 +342,7 @@ const Index = () => {
                 SUBJECT
               </Typography>
               <TextField
+                type="text"
                 hiddenLabel
                 id="outlined-error"
                 variant="filled"
@@ -359,6 +375,7 @@ const Index = () => {
                 MESSAGE
               </Typography>
               <TextField
+                type="message"
                 hiddenLabel
                 id="outlined-error"
                 variant="filled"
