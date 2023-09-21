@@ -7,7 +7,7 @@ const Index = () => {
   return (
     <Box sx={{ paddingX: "10%" }}>
       <Box>
-        <IconButton sx={{ p: 0, ml: 1, marginTop: "-25px" }}>
+        <IconButton sx={{ p: 0, ml: 1, mt: 10 }}>
           <Avatar
             alt="Ivie Image"
             src={ivieAvatar}

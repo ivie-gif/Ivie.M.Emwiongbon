@@ -1,4 +1,5 @@
 import "./App.css";
+import Contact from "./components/contact";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Navbar from "./components/navbar";
@@ -14,6 +15,7 @@ function App() {
         <Header />
         <Skills />
         <Portfolio />
+        <Contact />
         <Footer />
       </div>
     </div>
