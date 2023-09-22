@@ -28,7 +28,7 @@ const Index = () => {
         sx={{ mt: 10, mb: 3 }}
       >
         {portfolioContent &&
-          portfolioContent?.map((portData: any) => (
+          portfolioContent?.map((portData) => (
             <Grid
               item
               xs={12}
@@ -66,7 +66,7 @@ const Index = () => {
                           width: "90%",
                           height: "30vh",
                           borderRadius: "10px",
-                          opacity: 0.3
+                          opacity: 0.5
                         }}
                       />
                     </a>
