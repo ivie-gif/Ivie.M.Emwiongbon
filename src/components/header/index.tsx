@@ -17,11 +17,17 @@ const Header = () => {
         rowSpacing={1}
         justifyContent="space-between"
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-        direction={{ xs: "row-reverse", md: "row-reverse", lg: "row" }}
+        spacing={2}
+        sx={{
+          flexDirection: { xs: 'column-reverse', lg: 'row' }, // Row reverse on small screens, row on big screens
+          '&.MuiGrid-container': { // Style the container
+            marginBottom: { xs: '16px', lg: 0 }, // Add margin bottom on small screens
+          },
+        }}
       >
         {/* first div */}
         <Grid
-          sx={{ width: "50%", marginTop: "19%" }}
+          sx={{ width: {lg: "50%", xs: '100%'}, marginTop: {lg: "19%", xs: '50%'}}}
           item
           xs={12}
           lg={6}

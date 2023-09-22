@@ -49,7 +49,7 @@ const ResponsiveAppBar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener when the component unmounts
+    // Cleaning up the event listener when the component unmounts
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -73,7 +73,7 @@ const ResponsiveAppBar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 0, display: "flex" }}>
+          <Box sx={{ flexGrow: 0, display: "flex", pt: 2, pb: 2}}>
             <IconButton sx={{ p: 0 }}>
               <Avatar
                 alt="Ivie Image"
