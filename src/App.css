@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+
+@media screen and (max-width: 1200px) {
+  .App {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    text-align: center; /* Center-align text within the container */
+  }
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
