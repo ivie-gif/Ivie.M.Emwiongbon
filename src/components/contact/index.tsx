@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import BorderDivs from "../../shared/borderDivs";
 
 import { contactContent } from "../../db/contactContent";
 import { yupResolver } from "@hookform/resolvers/yup";
 import schema from "../../utils/yupValidation";
-// import { Controller } from 'react-hook-form'
 import { useForm, Controller } from "react-hook-form";
 
 import contactImage from "../../assets/contactImage.png";
@@ -14,32 +13,8 @@ import githubImage from "../../assets/gitupScreenshot.png";
 import Button from "../../shared/button";
 import arrowIcon from "../../assets/arrowStraight.png";
 
-interface FormData {
-  name: string;
-  phoneNumber: string;
-  email: string;
-  subject: string;
-  message: string;
-}
 
 const Index: React.FC = () => {
-  //   const [formData, setFormData] = useState<FormData>({
-  //     name: "",
-  //     email: "",
-  //     phoneNumber: "",
-  //     subject: "",
-  //     message: "",
-  //   });
-  //   const [validate, setValidate] = useState(false)
-
-  //   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //     const { name, value } = e.target;
-  //     setFormData({
-  //       ...formData,
-  //       [name]: value,
-  //     });
-  //   };
-
   const {
     control,
     handleSubmit,
@@ -52,7 +27,7 @@ const Index: React.FC = () => {
   const onSubmit = async (data: any) => {
     // e.preventDefault();
     // You can access the form data from formData here and perform actions like sending it to a server
-    console.log(data);
+    // console.log(data);
     reset();
   };
 
@@ -260,7 +235,7 @@ const Index: React.FC = () => {
                     id="outlined-error"
                     variant="filled"
                     InputProps={{
-                      disableUnderline: true, // Remove the default underline
+                      disableUnderline: true, 
                     }}
                     sx={{
                       width: "25ch",
@@ -268,10 +243,10 @@ const Index: React.FC = () => {
                       letterSpacing: "1px",
                       boxShadow:
                         "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
-                      color: 'white', // Change the input text color to white
+                      color: 'white', 
                     }, 
                     '&:hover': {
-                      border: '2px solid #ff014f', // Set the border color on hover
+                      border: '2px solid #ff014f', 
                     },
                     }} {...field} />}
                   />
@@ -295,7 +270,7 @@ const Index: React.FC = () => {
                     render={({ field }) => <TextField
                     type="tel"
                     InputProps={{
-                      disableUnderline: true, // Remove the default underline
+                      disableUnderline: true,
                     }}
                     hiddenLabel
                     id="outlined-error"
@@ -306,10 +281,10 @@ const Index: React.FC = () => {
                       letterSpacing: "1px",
                       boxShadow:
                         "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
-                      color: 'white', // Change the input text color to white
+                      color: 'white',
                     }, 
                     '&:hover': {
-                      border: '2px solid #ff014f', // Set the border color on hover
+                      border: '2px solid #ff014f', 
                     },
                     }} {...field} />}
                   />
@@ -338,7 +313,7 @@ const Index: React.FC = () => {
                 id="outlined-error"
                 variant="filled"
                 InputProps={{
-                  disableUnderline: true, // Remove the default underline
+                  disableUnderline: true,
                 }}
                 fullWidth
                 sx={{
