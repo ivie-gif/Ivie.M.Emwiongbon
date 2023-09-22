@@ -3,6 +3,10 @@ import { Box, Grid, TextField, Typography } from "@mui/material";
 import BorderDivs from "../../shared/borderDivs";
 
 import { contactContent } from "../../db/contactContent";
+import { yupResolver } from "@hookform/resolvers/yup";
+import schema from "../../utils/yupValidation";
+// import { Controller } from 'react-hook-form'
+import { useForm, Controller } from "react-hook-form";
 
 import contactImage from "../../assets/contactImage.png";
 import linkedInImage from "../../assets/linkedInImage.png";
@@ -18,34 +22,38 @@ interface FormData {
   message: string;
 }
 
-const Index = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phoneNumber: "",
-    subject: "",
-    message: "",
+const Index: React.FC = () => {
+  //   const [formData, setFormData] = useState<FormData>({
+  //     name: "",
+  //     email: "",
+  //     phoneNumber: "",
+  //     subject: "",
+  //     message: "",
+  //   });
+  //   const [validate, setValidate] = useState(false)
+
+  //   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //     const { name, value } = e.target;
+  //     setFormData({
+  //       ...formData,
+  //       [name]: value,
+  //     });
+  //   };
+
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: any) => {
+    // e.preventDefault();
     // You can access the form data from formData here and perform actions like sending it to a server
-    console.log(formData);
-    setFormData({
-      name: "",
-      email: "",
-      phoneNumber: "",
-      subject: "",
-      message: "",
-    });
+    console.log(data);
+    reset();
   };
 
   return (
@@ -222,7 +230,7 @@ const Index = () => {
               backgroundColor: "#212428",
             }}
           >
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <Box
                 sx={{
                   display: "flex",
@@ -243,23 +251,29 @@ const Index = () => {
                   >
                     NAME
                   </Typography>
-                  <TextField
+                  <Controller
+                    name="name"
+                    control={control}
+                    render={({ field }) => <TextField
                     type="text"
                     hiddenLabel
                     id="outlined-error"
                     variant="filled"
-                    color="error"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
+                    InputProps={{
+                      disableUnderline: true, // Remove the default underline
+                    }}
                     sx={{
                       width: "25ch",
                       border: "2px solid #191b1e",
-                      color: "#c4cfde",
                       letterSpacing: "1px",
                       boxShadow:
-                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
-                    }}
+                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
+                      color: 'white', // Change the input text color to white
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f', // Set the border color on hover
+                    },
+                    }} {...field} />}
                   />
                 </Box>
                 <Box sx={{ width: "25ch" }}>
@@ -275,23 +289,29 @@ const Index = () => {
                   >
                     PHONE NUMBER
                   </Typography>
-                  <TextField
+                  <Controller
+                    name="phoneNumber"
+                    control={control}
+                    render={({ field }) => <TextField
                     type="tel"
-                    color="error"
+                    InputProps={{
+                      disableUnderline: true, // Remove the default underline
+                    }}
                     hiddenLabel
                     id="outlined-error"
                     variant="filled"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleInputChange}
                     sx={{
                       width: "25ch",
                       border: "2px solid #191b1e",
-                      color: "#c4cfde",
                       letterSpacing: "1px",
                       boxShadow:
-                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
-                    }}
+                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
+                      color: 'white', // Change the input text color to white
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f', // Set the border color on hover
+                    },
+                    }} {...field} />}
                   />
                 </Box>
               </Box>
@@ -309,23 +329,29 @@ const Index = () => {
               >
                 EMAIL
               </Typography>
-              <TextField
+
+              <Controller
+                name="email"
+                control={control}
+                render={({ field }) => <TextField
                 hiddenLabel
                 id="outlined-error"
                 variant="filled"
-                color="error"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
+                InputProps={{
+                  disableUnderline: true, // Remove the default underline
+                }}
                 fullWidth
                 sx={{
                   border: "2px solid #191b1e",
-
-                  color: "#c4cfde",
                   letterSpacing: "1px",
                   boxShadow:
-                    "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
-                }}
+                    "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
+                      color: 'white',
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f',
+                    },
+                }}{...field} />}
               />
 
               <Typography
@@ -341,26 +367,30 @@ const Index = () => {
               >
                 SUBJECT
               </Typography>
-              <TextField
+              <Controller
+                name="subject"
+                control={control}
+                render={({ field }) => <TextField
                 type="text"
                 hiddenLabel
                 id="outlined-error"
                 variant="filled"
-                color="error"
-                name="subject"
-                value={formData.subject}
-                onChange={handleInputChange}
+                InputProps={{
+                  disableUnderline: true, 
+                }}
                 fullWidth
                 sx={{
                   border: "2px solid #191b1e",
-
-                  color: "#c4cfde",
                   letterSpacing: "1px",
                   boxShadow:
-                    "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
-                }}
+                    "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
+                      color: 'white', 
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f', 
+                    },
+                }} {...field} />}
               />
-
               <Typography
                 sx={{
                   textAlign: "left",
@@ -374,29 +404,32 @@ const Index = () => {
               >
                 MESSAGE
               </Typography>
-              <TextField
+              <Controller
+                name="message"
+                control={control}
+                render={({ field }) => <TextField
                 type="message"
                 hiddenLabel
                 id="outlined-error"
                 variant="filled"
-                color="error"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
+                InputProps={{
+                  disableUnderline: true,
+                }}
                 fullWidth
                 multiline
                 rows={10}
                 sx={{
                   border: "2px solid #191b1e",
-                  color: "#c4cfde",
                   letterSpacing: "1px",
                   boxShadow:
                     "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset",
-                  "&#outlined-error.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputMultiline.MuiInputBase-inputHiddenLabel.css-7209ej-MuiInputBase-input-MuiFilledInput-input":
-                    {
-                      color: "white",
+                    '& .MuiInputBase-input': {
+                      color: 'white',
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f', 
                     },
-                }}
+                }} {...field} />}
               />
               <Button
                 type="submit"

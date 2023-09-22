@@ -103,6 +103,9 @@ const Index = () => {
               minWidth: "-webkit-fill-available",
               border: "2px solid #202225",
               borderRadius: "20px",
+              '& .MuiTabs-indicator': {
+                display: 'none',
+              },
             }}
           >
             <Tab
