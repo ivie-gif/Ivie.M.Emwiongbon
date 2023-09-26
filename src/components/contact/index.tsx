@@ -12,7 +12,7 @@ import linkedInImage from "../../assets/linkedInImage.png";
 import githubImage from "../../assets/gitupScreenshot.png";
 import Button from "../../shared/button";
 import arrowIcon from "../../assets/arrowStraight.png";
-
+// import {Breakpoints} from '../../utils/muiConfig'
 
 const Index: React.FC = () => {
   const {
