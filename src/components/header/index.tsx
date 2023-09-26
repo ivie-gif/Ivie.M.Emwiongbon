@@ -8,8 +8,9 @@ import linkedInImage from "../../assets/linkedInImage.png";
 import githubImage from "../../assets/gitupScreenshot.png";
 
 import BorderDivs from "../../shared/borderDivs";
+import {breakpoints} from '../../utils/muiConfig'
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <Box sx={{ paddingX: "10%", textAlign: "left"}}>
       <Grid
@@ -19,9 +20,9 @@ const Header = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         spacing={2}
         sx={{
-          flexDirection: { xs: 'column-reverse', lg: 'row' }, // Row reverse on small screens, row on big screens
-          '&.MuiGrid-container': { // Style the container
-            marginBottom: { xs: '16px', lg: 0 }, // Add margin bottom on small screens
+          flexDirection: { xs: 'column-reverse', md: 'column-reverse', lg: 'row' }, 
+          '&.MuiGrid-container': { 
+            marginBottom: {md: '16px', xs: '30px', lg: 0 }, 
           },
         }}
       >
@@ -146,7 +147,7 @@ const Header = () => {
         </Grid>
 
         {/* second div */}
-        <Grid item xs={12} lg={6} md={12}>
+        <Grid item xs={12} lg={6} sm={12} md={12}>
           <Box
             sx={{
               borderColor: "red",
@@ -156,7 +157,7 @@ const Header = () => {
               zIndex: "-1",
               width: { xs: "80%", md: "80%", lg: "40%" },
               height: {
-                xs: "calc(85% - 100px)",
+                xs: "calc(60% - 100px)",
                 md: "calc(85% - 120px)",
                 lg: "calc(100% - 130px)",
               },
