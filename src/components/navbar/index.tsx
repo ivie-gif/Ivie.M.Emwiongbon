@@ -13,6 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import CustomButton from "../../shared/button";
 import { Link } from "react-router-dom";
 
+import Drawer from '../../shared/drawer'
+
 import ivieAvatar from "../../assets/avatar.png";
 
 const pages = [
@@ -23,6 +25,24 @@ const pages = [
 ];
 
 const ResponsiveAppBar = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (openStatus: boolean) => () => {
+    setOpen(openStatus);
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -87,6 +107,8 @@ const ResponsiveAppBar = () => {
               </Typography>
             </Box>
           </Box>
+
+          {/* mobile navaigation */}
           <Box
             sx={{
               flexGrow: 1,
@@ -104,43 +126,23 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon sx={{ position: "relative", right: "0px" }} />
+              <Drawer />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <a
-                    href={page.path}
-                    id={page.id}
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                      borderBottom: "none",
-                    }}
-                  >
-                    <Typography textAlign="center">{page.text}</Typography>
-                  </a>
-                </MenuItem>
-              ))}
-            </Menu>
+
           </Box>
+         
+
+
+
+
+
+
+
+
+
+
+
+         {/* big screen navigation */}
           <Box
             sx={{
               flexGrow: 1,
@@ -182,6 +184,7 @@ const ResponsiveAppBar = () => {
           </Box>
         </Toolbar>
       </Container>
+      
     </AppBar>
   );
 };
