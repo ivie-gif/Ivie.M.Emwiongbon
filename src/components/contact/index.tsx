@@ -77,7 +77,7 @@ const Index: React.FC = () => {
                     marginBottom: "9px",
                     textAlign: "left",
                     pt: 5,
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.name}
@@ -90,7 +90,7 @@ const Index: React.FC = () => {
                     color: "#878e99",
                     marginBottom: "20px",
                     textAlign: "left",
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.title}
@@ -103,7 +103,7 @@ const Index: React.FC = () => {
                     color: "#878e99",
                     marginBottom: "20px",
                     textAlign: "left",
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.paragraph}
@@ -115,7 +115,7 @@ const Index: React.FC = () => {
                     lineHeight: "30px",
                     color: "#878e99",
                     textAlign: "left",
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.phone}
@@ -128,7 +128,7 @@ const Index: React.FC = () => {
                     color: "#878e99",
                     marginBottom: "20px",
                     textAlign: "left",
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.email}
@@ -143,7 +143,7 @@ const Index: React.FC = () => {
                     fontWeight: "300",
                     textAlign: "left",
                     pt: 5,
-                    pl: 4,
+                    pl: {lg: 4},
                   }}
                 >
                   {contactDetail.socials}

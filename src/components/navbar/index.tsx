@@ -21,7 +21,6 @@ const pages = [
   { text: "Home", path: "/", id: "/" },
   { text: "Skills", path: "/skills", id: "/skills" },
   { text: "Projects", path: "/projects", id: "/skills" },
-  { text: "Resume", path: "/resume", id: "/skills" },
 ];
 
 const ResponsiveAppBar = () => {
@@ -30,18 +29,6 @@ const ResponsiveAppBar = () => {
   const toggleDrawer = (openStatus: boolean) => () => {
     setOpen(openStatus);
   };
-
-
-
-
-
-
-
-
-
-
-
-
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -131,15 +118,6 @@ const ResponsiveAppBar = () => {
 
           </Box>
          
-
-
-
-
-
-
-
-
-
 
 
          {/* big screen navigation */}
