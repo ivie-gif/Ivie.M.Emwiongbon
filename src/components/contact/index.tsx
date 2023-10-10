@@ -12,6 +12,7 @@ import linkedInImage from "../../assets/linkedInImage.png";
 import githubImage from "../../assets/gitupScreenshot.png";
 import Button from "../../shared/button";
 import arrowIcon from "../../assets/arrowStraight.png";
+import Footer from "../footer";
 // import {Breakpoints} from '../../utils/muiConfig'
 
 const Index: React.FC = () => {
@@ -32,6 +33,7 @@ const Index: React.FC = () => {
   };
 
   return (
+    <>
     <Box sx={{ paddingX: "10%" }}>
       <Typography sx={{ color: "#ff014f" }}>Contact</Typography>
       <Typography
@@ -404,7 +406,8 @@ const Index: React.FC = () => {
                     '&:hover': {
                       border: '2px solid #ff014f', 
                     },
-                }} {...field} />}
+                }} 
+                {...field} />}
               />
               <Button
                 type="submit"
@@ -444,7 +447,9 @@ const Index: React.FC = () => {
       </Grid>
 
       <BorderDivs />
+      <Footer />
     </Box>
+    </>
   );
 };
 

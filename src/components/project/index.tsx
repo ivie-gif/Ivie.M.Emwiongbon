@@ -10,7 +10,7 @@ import BorderDivs from "../../shared/borderDivs";
 
 const Index = () => {
   return (
-    <Box sx={{ padding: "10%" }}>
+    <Box sx={{ padding: "10%" }} id='project'>
       <Typography sx={{ color: "#ff014f" }}>
         VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK
       </Typography>

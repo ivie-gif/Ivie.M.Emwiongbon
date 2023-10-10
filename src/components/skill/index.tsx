@@ -13,6 +13,7 @@ import {
   backEnd,
   dataBase,
 } from "../../db/skillsData";
+// import Navbar from "../navbar";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -55,7 +56,7 @@ const Index = () => {
   };
 
   return (
-    <Box sx={{ paddingX: "10%" }}>
+    <Box sx={{ paddingX: "10%" }} id='skill'>
       <Typography
         sx={{
           color: "#ff014f",
@@ -103,8 +104,8 @@ const Index = () => {
               minWidth: "-webkit-fill-available",
               border: "2px solid #202225",
               borderRadius: "20px",
-              '& .MuiTabs-indicator': {
-                display: 'none',
+              "& .MuiTabs-indicator": {
+                display: "none",
               },
             }}
           >
