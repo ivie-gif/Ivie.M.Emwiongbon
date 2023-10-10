@@ -1,23 +1,21 @@
+// App.js
+// import { BrowserRouter } from "react-router-dom";
+// import Routes from "./Routes";
 import "./App.css";
 import Contact from "./components/contact";
-import Footer from "./components/footer";
+import Project from "./components/project";
+import Skills from "./components/skill";
+import NavBar from "./components/navbar";
 import Header from "./components/header";
-import Navbar from "./components/navbar";
-import Portfolio from './components/portfolio';
-import Skills from "./components/skills";
-
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <Navbar />
-        <Header />
-        <Skills />
-        <Portfolio />
-        <Contact />
-        <Footer />
-      </div>
+      <NavBar />
+      <Header />
+      <Skills />
+      <Project />
+      <Contact />
     </div>
   );
 }

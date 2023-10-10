@@ -12,7 +12,9 @@ import {breakpoints} from '../../utils/muiConfig'
 
 const Header: React.FC = () => {
   return (
-    <Box sx={{ paddingX: "10%", textAlign: "left"}}>
+    <>
+   
+    <Box sx={{ paddingX: "10%", textAlign: "left"}} id='header'>
       <Grid
         container
         rowSpacing={1}
@@ -177,6 +179,7 @@ const Header: React.FC = () => {
       </Grid>
       <BorderDivs/>
     </Box>
+    </>
   );
 };
 

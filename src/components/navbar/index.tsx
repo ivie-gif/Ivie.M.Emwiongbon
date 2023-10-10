@@ -4,26 +4,27 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import MenuItem from "@mui/material/MenuItem";
 import CustomButton from "../../shared/button";
 import { Link } from "react-router-dom";
 
+import Drawer from '../../shared/drawer'
+
 import ivieAvatar from "../../assets/avatar.png";
+import path from "path";
+// import Header from "../header";
 
 const pages = [
-  { text: "Home", path: "/", id: "/" },
-  { text: "Skills", path: "/skills", id: "/skills" },
-  { text: "Projects", path: "/projects", id: "/skills" },
-  { text: "Resume", path: "/resume", id: "/skills" },
+  { text: "Home", path: "/"},
+  { text: "Skills", path: "/skill", id: "/skill" },
+  { text: "Projects", path: "/project", id: "project" },
 ];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+
+  const [, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
 
@@ -56,6 +57,7 @@ const ResponsiveAppBar = () => {
   }, []);
 
   return (
+    <>
     <AppBar
       position="sticky"
       className={`scrolled ${scrolling ? "scrolled" : ""}`}
@@ -87,6 +89,8 @@ const ResponsiveAppBar = () => {
               </Typography>
             </Box>
           </Box>
+
+          {/* mobile navaigation */}
           <Box
             sx={{
               flexGrow: 1,
@@ -104,43 +108,14 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon sx={{ position: "relative", right: "0px" }} />
+              <Drawer />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page, index) => (
-                <MenuItem key={index} onClick={handleCloseNavMenu}>
-                  <a
-                    href={page.path}
-                    id={page.id}
-                    style={{
-                      textDecoration: "none",
-                      color: "white",
-                      borderBottom: "none",
-                    }}
-                  >
-                    <Typography textAlign="center">{page.text}</Typography>
-                  </a>
-                </MenuItem>
-              ))}
-            </Menu>
+
           </Box>
+        
+
+
+         {/* big screen navigation */}
           <Box
             sx={{
               flexGrow: 1,
@@ -155,9 +130,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ mx: 2, color: "#c4cfde", display: "block" }}
               >
-                <a
-                  href={page.path}
-                  id={page.id}
+                 <Link to={page.path}
                   style={{
                     textDecoration: "none",
                     color: "white",
@@ -165,9 +138,11 @@ const ResponsiveAppBar = () => {
                   }}
                 >
                   {page.text}
-                </a>
+                  </Link>
               </Button>
             ))}
+           <Link to="/contact" id= 'contact'>
+           
             <CustomButton
               variant="text"
               sx={{
@@ -179,10 +154,14 @@ const ResponsiveAppBar = () => {
             >
               Contact
             </CustomButton>
+           </Link>
           </Box>
         </Toolbar>
       </Container>
+      
     </AppBar>
+      {/* <Header /> */}
+    </>
   );
 };
 export default ResponsiveAppBar;
