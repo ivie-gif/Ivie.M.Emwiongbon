@@ -108,14 +108,13 @@ const ResponsiveAppBar = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              
             >
               <Drawer />
             </IconButton>
 
           </Box>
         
-
-
          {/* big screen navigation */}
           <Box
             sx={{
@@ -161,7 +160,6 @@ const ResponsiveAppBar = () => {
       </Container>
       
     </AppBar>
-      {/* <Header /> */}
     </>
   );
 };

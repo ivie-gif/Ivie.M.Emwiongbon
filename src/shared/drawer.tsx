@@ -85,7 +85,7 @@ export default function TemporaryDrawer() {
               <Link href={sideNav.path}
                   style={{
                     textDecoration: "none",
-                    color: "white",
+                    color: '#878e99',
                     borderBottom: "none",
                   }}
                 >

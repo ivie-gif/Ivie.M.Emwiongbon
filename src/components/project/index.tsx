@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Box, Checkbox, Grid, Stack, Typography } from "@mui/material";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 
 import Card from "../../shared/cards";
 
@@ -12,7 +10,7 @@ const Index = () => {
   return (
     <Box sx={{ padding: "10%" }} id='project'>
       <Typography sx={{ color: "#ff014f" }}>
-        VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK
+        VISIT MY PORTFOLIO AND DROP YOUR FEEDBACK
       </Typography>
       <Typography
         variant="h2"
