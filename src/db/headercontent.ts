@@ -6,7 +6,7 @@ export type IHeaderContent = {
   }[];
 
 export const headerContent: IHeaderContent = [{
-subIntro: 'WELCOME TO MY INBIO',
+subIntro: 'WELCOME,',
 mainIntro: 'I am a Software Engineer, Technical Writer and all round Developer passionate about creating software and web applications, my goal is to help people enjoy the use of technology on a daily basis <span class="#ff014f"> :) </span>',
 socials: 'FIND ME ONLINE'
 }]

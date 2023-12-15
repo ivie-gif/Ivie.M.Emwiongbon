@@ -2,13 +2,11 @@ import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { headerContent } from "../../db/headercontent";
 import Typewriter from "typewriter-effect";
-
 import ivieAvatar from "../../assets/ivieHeaderImage-removebg-preview.png";
 import linkedInImage from "../../assets/linkedInImage.png";
 import githubImage from "../../assets/gitupScreenshot.png";
 
 import BorderDivs from "../../shared/borderDivs";
-import {breakpoints} from '../../utils/muiConfig'
 
 const Header: React.FC = () => {
   return (

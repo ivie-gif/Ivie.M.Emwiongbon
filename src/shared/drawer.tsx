@@ -4,7 +4,6 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import CancelIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Typography, Avatar } from "@mui/material";
@@ -33,7 +32,6 @@ export default function TemporaryDrawer() {
       sx={{
         width: { lg: 375, xs: 310, md: 310 },
         height: "100vh",
-        // backgroundColor: "#191b1e !important",
         color: "#c4cfde",
         fontSize: "14px",
         fontWeight: 500,
@@ -84,10 +82,6 @@ export default function TemporaryDrawer() {
         {sideNav.map((sideNav) => (
           <ListItem key={sideNav.path} disablePadding>
             <ListItemButton>
-              {/* <ListItemIcon sx={{color: 'white'}}>
-                Home
-              </ListItemIcon> */}
-              {/* <ListItemText primary={text} /> */}
               <Link href={sideNav.path}
                   style={{
                     textDecoration: "none",
@@ -101,7 +95,6 @@ export default function TemporaryDrawer() {
           </ListItem>
         ))}
       </List>
-      {/* <BorderDivs /> */}
       <Typography
         sx={{
           color: "#c4cfde",
