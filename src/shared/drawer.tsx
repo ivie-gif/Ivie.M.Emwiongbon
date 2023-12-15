@@ -10,13 +10,15 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Typography, Avatar } from "@mui/material";
 import linkedInImage from "../assets/linkedInImage.png";
 import githubImage from "../assets/gitupScreenshot.png";
+import Link from "@mui/material/Link"
 
 import ivieAvatar from "../assets/avatar.png";
 
 const sideNav = [
-  { text: "Home", path: "/", id: "/" },
-  { text: "Skills", path: "/skills", id: "/skills" },
-  { text: "Projects", path: "/projects", id: "/skills" },
+  { text: "Home", path: "#", id: "/" },
+  { text: "Skills", path: "#skill" },
+  { text: "Projects", path: "#project"},
+  { text: "Contact", path: "#contact"},
 ];
 
 export default function TemporaryDrawer() {
@@ -30,14 +32,15 @@ export default function TemporaryDrawer() {
     <Box
       sx={{
         width: { lg: 375, xs: 310, md: 310 },
-        height: "100%",
-        backgroundColor: "#191b1e !important",
+        height: "100vh",
+        // backgroundColor: "#191b1e !important",
         color: "#c4cfde",
         fontSize: "14px",
         fontWeight: 500,
         textTransform: "uppercase",
         pl: 2,
         
+       
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
@@ -78,13 +81,22 @@ export default function TemporaryDrawer() {
             Crafting Digital Dreams, One Line of Code at a Time. I'll be very happy to connect with you :) 
             </Typography>
       <List sx={{ pb: 10 , pt: 4}}>
-        {["Home", "Skills", "Project", "Contact"].map((text) => (
-          <ListItem key={text} disablePadding>
+        {sideNav.map((sideNav) => (
+          <ListItem key={sideNav.path} disablePadding>
             <ListItemButton>
               {/* <ListItemIcon sx={{color: 'white'}}>
                 Home
               </ListItemIcon> */}
-              <ListItemText primary={text} />
+              {/* <ListItemText primary={text} /> */}
+              <Link href={sideNav.path}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                    borderBottom: "none",
+                  }}
+                >
+                  {sideNav.text}
+                  </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -157,6 +169,9 @@ export default function TemporaryDrawer() {
       <Drawer
         open={open}
         onClose={toggleDrawer(false)}
+        sx={{ '& .MuiDrawer-paper': {
+          backgroundColor: '#191b1e'
+        }}}
       >
         {list()}
       </Drawer>

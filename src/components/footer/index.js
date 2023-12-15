@@ -18,7 +18,7 @@ const Index = () => {
           <Typography
             sx={{ marginTop: "6px", ml: 1, color: "#c4cfde", fontSize: "20px" }}
           >
-            INBIO
+            Ivie Maryann Emwiongbon
           </Typography>
         </Box>
       </Box>
