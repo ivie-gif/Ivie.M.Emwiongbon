@@ -8,7 +8,8 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CustomButton from "../../shared/button";
-import { Link } from "react-router-dom";
+import Link from '@mui/material/Link'
+// import { Link } from "react-router-dom";
 
 import Drawer from '../../shared/drawer'
 
@@ -17,9 +18,9 @@ import path from "path";
 // import Header from "../header";
 
 const pages = [
-  { text: "Home", path: "/"},
-  { text: "Skills", path: "/skill", id: "/skill" },
-  { text: "Projects", path: "/project", id: "project" },
+  { text: "Home", path: "#"},
+  { text: "Skills", path: "#skill", id: "/skill" },
+  { text: "Projects", path: "#project", id: "project" },
 ];
 
 const ResponsiveAppBar = () => {
@@ -85,7 +86,7 @@ const ResponsiveAppBar = () => {
             </IconButton>
             <Box>
               <Typography sx={{ mt: 2, ml: 2, color: "#c4cfde" }}>
-                INBIO
+                Ivie Maryann Emwiongbon
               </Typography>
             </Box>
           </Box>
@@ -130,7 +131,7 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ mx: 2, color: "#c4cfde", display: "block" }}
               >
-                 <Link to={page.path}
+                 <Link href={page.path}
                   style={{
                     textDecoration: "none",
                     color: "white",
@@ -141,7 +142,7 @@ const ResponsiveAppBar = () => {
                   </Link>
               </Button>
             ))}
-           <Link to="/contact" id= 'contact'>
+           <Link href="#contact" id= '#contact'>
            
             <CustomButton
               variant="text"

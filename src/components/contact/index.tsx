@@ -34,7 +34,7 @@ const Index: React.FC = () => {
 
   return (
     <>
-    <Box sx={{ paddingX: "10%" }}>
+    <Box sx={{ paddingX: "10%" }} id='contact'>
       <Typography sx={{ color: "#ff014f" }}>Contact</Typography>
       <Typography
         variant="h2"
@@ -208,24 +208,18 @@ const Index: React.FC = () => {
             }}
           >
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  height: "auto",
+                
+                <Typography
+                 sx={{
+                  textAlign: "left",
+                  fontSize: "12px",
+                  color: "#a0a8b3",
+                  fontWeight: 500,
+                  letterSpacing: "1px",
+                  marginBottom: "14px",
+                  mt: 4,
                 }}
               >
-                <Box>
-                  <Typography
-                    sx={{
-                      textAlign: "left",
-                      fontSize: "12px",
-                      color: "#a0a8b3",
-                      fontWeight: 500,
-                      letterSpacing: "1px",
-                      marginBottom: "14px",
-                    }}
-                  >
                     NAME
                   </Typography>
                   <Controller
@@ -233,50 +227,13 @@ const Index: React.FC = () => {
                     control={control}
                     render={({ field }) => <TextField
                     type="text"
-                    hiddenLabel
-                    id="outlined-error"
-                    variant="filled"
                     InputProps={{
                       disableUnderline: true, 
                     }}
-                    sx={{
-                      width: "25ch",
-                      border: "2px solid #191b1e",
-                      letterSpacing: "1px",
-                      boxShadow:
-                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
-                      color: 'white', 
-                    }, 
-                    '&:hover': {
-                      border: '2px solid #ff014f', 
-                    },
-                    }} {...field} />}
-                  />
-                </Box>
-                <Box sx={{ width: "25ch" }}>
-                  <Typography
-                    sx={{
-                      textAlign: "left",
-                      fontSize: "12px",
-                      color: "#a0a8b3",
-                      fontWeight: 500,
-                      letterSpacing: "1px",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    PHONE NUMBER
-                  </Typography>
-                  <Controller
-                    name="phoneNumber"
-                    control={control}
-                    render={({ field }) => <TextField
-                    type="tel"
-                    InputProps={{
-                      disableUnderline: true,
-                    }}
                     hiddenLabel
                     id="outlined-error"
                     variant="filled"
+                    fullWidth
                     sx={{
                       width: "25ch",
                       border: "2px solid #191b1e",
@@ -290,8 +247,47 @@ const Index: React.FC = () => {
                     },
                     }} {...field} />}
                   />
-                </Box>
-              </Box>
+                
+                
+                <Typography
+                sx={{
+                  textAlign: "left",
+                  fontSize: "12px",
+                  color: "#a0a8b3",
+                  fontWeight: 500,
+                  letterSpacing: "1px",
+                  marginBottom: "14px",
+                  mt: 4,
+                }}
+              >
+                    PHONE NUMBER
+                  </Typography>
+                  <Controller
+                    name="phoneNumber"
+                    control={control}
+                    render={({ field }) => <TextField
+                    type="tel"
+                    InputProps={{
+                      disableUnderline: true,
+                    }}
+                    hiddenLabel
+                    id="outlined-error"
+                    variant="filled"
+                    fullWidth
+                    sx={{
+                      width: "25ch",
+                      border: "2px solid #191b1e",
+                      letterSpacing: "1px",
+                      boxShadow:
+                        "1px 4px 2px -3px rgba(0, 0, 0, 0.7) inset, -1px -3px 3px -2px rgba(255, 255, 255, 0.2) inset", '& .MuiInputBase-input': {
+                      color: 'white',
+                    }, 
+                    '&:hover': {
+                      border: '2px solid #ff014f', 
+                    },
+                    }} {...field} />}
+                  />
+               
 
               <Typography
                 sx={{
