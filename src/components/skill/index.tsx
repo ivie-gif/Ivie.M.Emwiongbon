@@ -107,17 +107,20 @@ const Index = () => {
               "& .MuiTabs-indicator": {
                 display: "none",
               },
+              "& .MuiTab-root.Mui-selected": {
+                color: '#ff014f',
+                backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
+                boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
+              }
             }}
           >
             <Tab
               label="CSS Framework"
               {...a11yProps(0)}
               sx={{
-                boxShadow: "15px 15px 20px #1c1e22, -10px -10px 19px #262a2e",
-                backgroundColor: "linear-gradient(145deg, #1e2024, #23272b)",
                 py: 5,
                 borderRadius: 1,
-                color: "#ff014f",
+                color: "#FFFFFF",
                 "&:hover": {
                   color: "#ff014f",
                   backgroundColor: "#212529",
